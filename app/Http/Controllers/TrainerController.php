@@ -7,6 +7,10 @@ use App\Models\Admin;
 
 class TrainerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("permission:create-trainers")->only("create","store");
+    }
     public function create()
     {
         return view("trainers.create");
@@ -19,6 +23,7 @@ class TrainerController extends Controller
             return [
                 "id"=> $data->id,
                 "text"=> $data->full_name,
+                "selected"=>request("q") == $data->id
             ];
         });
         return response()->json(["items"=>$trainer]);

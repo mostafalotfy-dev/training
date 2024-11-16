@@ -12,7 +12,7 @@
         </div>
         <div class="icon"><i class="fas fa-user"></i></div>
         @can("read-admins")
-        <a href="{{route("admins.index")}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        <a href="{{route("admins.index")}}" class="small-box-footer">@lang("More info") <i class="fas fa-arrow-circle-right"></i></a>
         @endcan
     </div>
     </div>
@@ -24,7 +24,7 @@
         </div>
         <div class="icon"><i class="fa fa-heart"></i></div>
         @can("read-trainers")
-        <a href="{{route("trainers.index")}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        <a href="{{route("trainers.index")}}" class="small-box-footer">@lang("More info") <i class="fas fa-arrow-circle-right"></i></a>
         @endcan
     </div>
     </div>
@@ -36,10 +36,23 @@
         </div>
         <div class="icon"><i class="fas fa-arrow-circle-right"></i></div>
         @can("read-courses")
-        <a href="{{route("courses.index")}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        <a href="{{route("courses.index")}}" class="small-box-footer">@lang("More info") <i class="fas fa-arrow-circle-right"></i></a>
         @endcan
     </div>
     </div>
+    <div class="col-lg-3 col-6">
+        <div class="info-box">
+    <span class="info-box-icon bg-primary">
+    <i class="fas fa-hourglass-half"></i>
+          </span>
+      <div class="info-box-content">
+        <span class="info-box-text">@lang("Total Hours for Watching Courses")</span>
+        <span class="info-box-number">{{number_format($courses_watched_sum,2) }} @lang("Hours")</span>
+      </div>
+            
+    </div>
+    </div>
+</div>
 </div>
 
 @stop
