@@ -1,0 +1,1 @@
+<a href="{{$data->video_link}}" frameborder="0">{{$data->video_link}}</a>

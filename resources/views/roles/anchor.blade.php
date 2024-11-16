@@ -1,0 +1,1 @@
+{{html()->a(route("roles.show",["role"=>$data->id]))->text($data->id)->class("text-primary")}}
