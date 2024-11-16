@@ -23,7 +23,7 @@
 
     <div class="col-md-6 wrap">
        
-            <label for="video_link">@lang("Youtube Link")</label>
+            <label for="video_link">@lang("Youtube Link") <i class="fas fa-heart"></i></label>
             {{html()->text("video_link")->class("form-control")->placeholder(__("Add Video"))->required()}}
 
             @error("video_link")
@@ -45,7 +45,7 @@
         <div class="col-md-6">
         @can("read-admins")
             <label for="admin_id">@lang("Instructor")</label>
-            {{html()->select("admin_id",$instructors)
+            {{html()->select("admin_id")
             ->class("form-control select2")
             ->placeholder(__("Select Instructor"))}}
 

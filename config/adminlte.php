@@ -84,7 +84,7 @@ return [
     */
 
     'auth_logo' => [
-        'enabled' => false,
+        'enabled' => true,
         'img' => [
             'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
             'alt' => 'Auth Logo',
@@ -257,7 +257,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin/dashboard',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -327,7 +327,7 @@ return [
 
         ],
         [
-            'text' => 'roles',
+            'text' => 'Roles',
             'url' => 'admin/roles',
             'icon' => 'fa fa-cogs',
             "can"=> "read-roles"
@@ -350,12 +350,12 @@ return [
             'icon' => 'fa fa-eye',
             "can"=>"read-courses"
         ],
-        [
-            'text' => 'Reports',
-            'url' => 'admin/reports',
-            'icon' => 'fa fa-eye',
+        // [
+            // 'text' => 'Reports',
+            // 'url' => 'admin/reports',
+            // 'icon' => 'fa fa-eye',
             // "can"=>"read-reports"
-        ],
+        // ]
     ],
 
     /*
@@ -449,7 +449,7 @@ return [
             ],
         ],
         'Sweetalert2' => [
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'js',

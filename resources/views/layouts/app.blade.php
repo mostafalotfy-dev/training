@@ -49,17 +49,13 @@
 {{-- Add common Javascript/Jquery code --}}
 
 @push('js')
-<script>
-    $("[type=select]").select2(
-        ajax:{
-            
-        }
-    )
+<script src="{{asset("main.js")}}">
+  
 </script>
 @endpush
 
 {{-- Add common CSS customizations --}}
 
 @push('css')
-
+<link rel="stylesheet" href="{{asset("style.css")}}">
 @endpush

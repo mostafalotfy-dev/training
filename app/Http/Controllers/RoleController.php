@@ -6,6 +6,11 @@ use App\Models\Role;
 use App\Models\Permission;
 class RoleController extends Controller
 {
+    public function __construct(){
+        $this->middleware("permission:create-roles")->only("create","store");
+        $this->middleware("permission:update-roles")->only("edit","update");
+        $this->middleware("permission:delete-roles")->only("destroy");
+    }
     public function edit($id)
     {
         $role = Role::findOrFail($id);
