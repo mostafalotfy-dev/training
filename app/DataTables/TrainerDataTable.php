@@ -44,7 +44,7 @@ class TrainerDataTable extends DataTable
                     ->setTableId('trainer-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->dom('Bfrtip')
+                    // ->dom('Bfrtip')
                     ->orderBy(1)
                     ->selectStyleSingle()
                     ->buttons([

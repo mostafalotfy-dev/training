@@ -8,3 +8,4 @@ use App\Http\Controllers\TrainerController;
 Route::post('trainer', [TrainerController::class,"ajax"])->name("ajax.trainer");
 Route::post("courses/ajax",[CourseController::class,"ajax"])->name("courses.ajax");
 Route::post("instructor/ajax",[CourseController::class,"ajax"])->name("ajax.instructor");
+Route::post("my-courses",[CourseController::class,"my"])->name("courses.time");

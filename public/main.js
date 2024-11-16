@@ -1,17 +1,35 @@
-/** TO DISABLE SCREEN CAPTURE **/
-document.addEventListener('keyup', (e) => {
-    if (e.key == 'PrintScreen') {
-        navigator.clipboard.writeText('');
-        alert('Screenshots disabled!');
+function updateTime(t,finished){
+    $.ajax({
+        url:"/api/my-courses",
+        method:"post",
+        data:{
+            time:t,
+            course_id:$("[data-course]").attr("data-course"),
+            admin_id:$("[data-admin]").attr("data-admin"),
+            finished:+finished
+        },
+        headers:{
+            "X-CSRF-TOKEN":$("meta[name=csrf-token]")
+        },
+       
     }
-});
+    )
+  }
 
-/** TO DISABLE PRINTS WHIT CTRL+P **/
-document.addEventListener('keydown', (e) => {
-    if (e.ctrlKey && e.key == 'p') {
-        alert('This section is not allowed to print or export to PDF');
-        e.stopPropagation()
-        e.preventDefault();
-        e.stopImmediatePropagation();
+
+  function onPlayerStateChange(event) {
+
+    if(event.data == YT.PlayerState.PAUSED ){
+    
+           updateTime(player.getCurrentTime().toFixed(2),false)
+      }
+      if(event.data == YT.PlayerState.ENDED)
+      {
+        updateTime(player.getCurrentTime().toFixed(2),true)
+      }
     }
-});
+
+    function onPlayerReady()
+    {
+        console.log("ready")
+    }

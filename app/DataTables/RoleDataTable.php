@@ -49,7 +49,7 @@ class RoleDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->responsive()
-                     ->dom('Bfrtip')
+                    //  ->dom('Bfrtip')
                     ->orderBy(1)
                     ->selectStyleSingle()
                     ->buttons([

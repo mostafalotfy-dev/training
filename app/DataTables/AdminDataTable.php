@@ -45,7 +45,7 @@ class AdminDataTable extends DataTable
      */
     public function query(Admin $model): QueryBuilder
     {
-        return $model->newQuery()->where("id","<>",1)->role("instructor");
+    return $model->newQuery()->where("id","<>",1)->role("instructor");
     }
 
     /**
@@ -57,7 +57,7 @@ class AdminDataTable extends DataTable
                     ->setTableId('admin-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->dom('Bfrtip')
+                    // ->dom('Bfrtip')
                     ->orderBy(1)
                     ->selectStyleSingle()
                     ->buttons([
@@ -84,9 +84,6 @@ class AdminDataTable extends DataTable
             Column::make('full_name')->title(__("Full Name")),
             Column::make('email')->title(__("Email")),
             Column::make('phone_number')->title(__("Phone Number")),
-
-
-
             Column::make('created_at')->title(__("Created At")),
             Column::make('updated_at')->title(__("Updated At")),
         ];

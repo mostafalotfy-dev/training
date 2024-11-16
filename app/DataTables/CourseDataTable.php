@@ -44,7 +44,7 @@ class CourseDataTable extends DataTable
                     ->setTableId('course-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->dom('Bfrtip')
+                    // ->dom('Bfrtip')
                     ->orderBy(1)
                     ->selectStyleSingle()
                     ->buttons([

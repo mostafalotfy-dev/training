@@ -35,9 +35,44 @@ class CourseController extends Controller
     }
     public function my()
     {
+       
+        if(request()->ajax())
+        {
+            request()->validate([
+                "course_id"=>"required|exists:courses,id|integer",
+                "time"=>"required",
+                "admin_id"=>"required|exists:admins,id|integer"
+            ]);
+            $db = \DB::table("courses_watched");
+           
+            $course_exists = $db->where("course_id",request("course_id"))
+            ->where("admin_id",request("admin_id"))->where("finished",0)->count() > 0;
+            
+            match($course_exists){
+                false => $db->insert(  [
+                    "course_id"=>request("course_id"),
+                    "time"=> request("time"),
+                    "admin_id"=>request("admin_id"),
+                    "finished"=>request("finished"),
+                ]),
+                true => $db->update(  [
+                    "course_id"=>request("course_id"),
+                    "time"=> request("time"),
+                    "admin_id"=>request("admin_id"),
+                    "finished"=>request("finished")
+                ]),
+            };
+          
+        
+            return response("",204);
+        }
         $admin = auth("admin")->user();
         $courses = $admin->courses()->paginate(1);
-        return view("courses.my",compact("admin","courses"));
+        $time = \DB::table("courses_watched")
+        ->latest("time")
+        ->where("admin_id",$admin->id)
+        ->latest("id")->value("time");
+        return view("courses.my",compact("admin","courses","time"));
     }
     /**
      * Store a newly created resource in storage.
