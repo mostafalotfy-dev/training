@@ -33,7 +33,12 @@ class CourseController extends Controller
     {
         return view("courses.create");
     }
-
+    public function my()
+    {
+        $admin = auth("admin")->user();
+        $courses = $admin->courses()->paginate(1);
+        return view("courses.my",compact("admin","courses"));
+    }
     /**
      * Store a newly created resource in storage.
      */

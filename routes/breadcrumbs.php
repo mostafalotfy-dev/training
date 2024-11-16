@@ -85,6 +85,10 @@ Breadcrumbs::for('courses.show', function (BreadcrumbTrail $trail,$id) {
 
     $trail->push(__("Show Course"), route('courses.show',$id));
 });
+Breadcrumbs::for('courses.my', function (BreadcrumbTrail $trail) {
+    $trail->parent("courses.index");
+    $trail->push(__("My Courses"), route('courses.my'));
+});
 Breadcrumbs::for('dashboard', function (BreadcrumbTrail $trail) {
 
 

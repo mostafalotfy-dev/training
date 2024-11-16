@@ -23,6 +23,7 @@ Route::group(['prefix'=> "admin"],function(){
     Route::resource("courses",CourseController::class)->except("index");
     Route::get("dashboard",DashboardController::class)->name("dashboard");
     Route::get("reports",DashboardController::class)->name("dashboard");
+    Route::get("my-courses",[CourseController::class,"my"])->name("courses.my");
 
 });
     

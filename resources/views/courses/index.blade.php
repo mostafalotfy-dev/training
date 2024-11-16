@@ -10,7 +10,7 @@
         @can("read-courses")
         <a class="btn btn-primary" href="{{route("courses.create")}}">@lang("Create Course")</a>
         @endcan
-        
+        <a class="btn btn-warning" href="{{route("courses.my")}}">@lang("My Courses")</a>
     <hr>
     <div class="table-responsive">      
           {{$dataTable->table()}}
