@@ -52,6 +52,13 @@
 <script src="{{asset("main.js")}}">
   
 </script>
+<script language="javascript">
+var noPrint=true;
+var noCopy=true;
+var noScreenshot=true;
+var autoBlur=false;
+</script>
+<script src="https://pdfanticopy.com/noprint.js"></script>
 @endpush
 
 {{-- Add common CSS customizations --}}
