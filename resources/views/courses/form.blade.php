@@ -23,7 +23,7 @@
 
     <div class="col-md-6 wrap">
        
-            <label for="video_link">@lang("Youtube Link") <i class="fas fa-heart"></i></label>
+            <label for="video_link">@lang("Youtube Link") </label>
             {{html()->text("video_link")->class("form-control")->placeholder(__("Add Video"))->required()}}
 
             @error("video_link")

@@ -15,4 +15,7 @@ class Admin extends Authenticatable
         "phone_number",
         "created_by"
     ];
+    public function courses(){
+        return $this->hasMany(Course::class);
+    }
 }
